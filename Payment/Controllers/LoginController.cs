@@ -57,8 +57,10 @@ namespace Payment.Controllers
             connection.Close();
             if (result > 0)
             {
-                return RedirectToAction("Record", "Record");// return نتیجه Redirect را به مرورگر برگردان.
-               // HttpContext.Session.SetString("UserName", user.UserName);
+                // ذخیره نام کاربری در Session
+                HttpContext.Session.SetString("UserName", user.UserName);
+
+                return RedirectToAction("Record", "Record");
             }
 
             ViewBag.Error = "username or password is incorrect";

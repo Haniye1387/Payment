@@ -18,6 +18,8 @@ namespace Payment.Controllers
         [HttpPost]
         public IActionResult Record(Cost cost)
         {
+            string? username = HttpContext.Session.GetString("UserName");
+
             string dbPath = Path.Combine(
                Directory.GetCurrentDirectory(),
                "Database",
@@ -26,14 +28,14 @@ namespace Payment.Controllers
 
             string connectionString =
                 $@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={dbPath};";
-            if (string.IsNullOrWhiteSpace(cost.UserName) ||
-                string.IsNullOrWhiteSpace(cost.TypeOfCost) ||
-               cost.Price <= 0)
+            if (string.IsNullOrWhiteSpace(username) ||
+             string.IsNullOrWhiteSpace(cost.TypeOfCost) ||
+              cost.Price <= 0)
             {
                 ViewBag.Error = "Please fill all fields correctly.";
                 return View(cost);
             }
-
+            cost.UserName = username;
             cost.Date = DateTime.Now.ToString("yyyy/MM/dd");
             using (OleDbConnection connection = new OleDbConnection(connectionString))
             {

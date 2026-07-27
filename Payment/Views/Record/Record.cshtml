@@ -142,7 +142,10 @@
             <div class="title"><br><span>enter your today cost</span></div>
             <label>Date: <label name="Date"> @DateTime.Now.ToString("yyyy/MM/dd")</label>
         </label>
-        <label>Name: <input class="input" name="UserName" placeholder="Username"></label>
+        <label>
+            name:
+            <strong>@Context.Session.GetString("UserName")</strong>
+        </label>
 
         <label>Type : <input class="input" name="TypeOfCost" placeholder="Type of cost"></label>
 
@@ -156,7 +159,17 @@
                 <p class="error-message">@ViewBag.Error</p>
             }
           <button class="button-confirm" type="submit">Recording expenses</button>
-            <button class="button-confirm" type="submit">Report</button>
+        <button class="button-confirm"
+                asp-controller="Report"
+                asp-action="Report"
+                formmethod="get">
+            Report
+        </button>
+        <button class="button-confirm"
+                type="button"
+                onclick="location.href='@Url.Action("Login", "Login")'">
+            Back to Login
+        </button>
         </form>
 </body>
 </html>
