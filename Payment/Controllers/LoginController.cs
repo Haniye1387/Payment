@@ -10,24 +10,18 @@ namespace Payment.Controllers
         [HttpGet]//attribute get for login page
         public IActionResult Login()//method login
         {
-            return View();
+            ModelState.Clear();
+            return View(new User());
         }
 
         [HttpPost]
         public IActionResult Login(User user)
         {
             // بررسی خالی بودن Username
-            if (string.IsNullOrWhiteSpace(user.UserName))
+            if (string.IsNullOrWhiteSpace(user.UserName) || string.IsNullOrWhiteSpace(user.Password) )
             {
-                ViewBag.Error = "please enter your username";
+                ViewBag.Error = "please fill in all fields";
                 return View(user);
-            }
-
-            // بررسی خالی بودن Password
-            if (string.IsNullOrWhiteSpace(user.password))
-            {
-                ViewBag.Error = "please enter your password";
-                return View(user);//این کار می‌تواند باعث شود اطلاعات واردشده در فرم دوباره در View در دسترس باشند.
             }
 
             string dbPath = Path.Combine(
@@ -49,7 +43,7 @@ namespace Payment.Controllers
                 new OleDbCommand(query, connection);//اجرای کوئری
 
             command.Parameters.AddWithValue("@username", user.UserName);
-            command.Parameters.AddWithValue("@password", user.password);
+            command.Parameters.AddWithValue("@password", user.Password);
 
             connection.Open();//اتصال به دیتابیس را باز کن
 

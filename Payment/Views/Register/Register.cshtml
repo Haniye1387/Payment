@@ -1,0 +1,51 @@
+﻿@model Payment.Models.User
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<form class="form" asp-controller="Register"  asp-action="Register" method="post">
+
+    <div class="title">
+        Hi
+        <br/>
+        <span>Create new account</span>
+    </div>
+
+    <input class="input"
+           name="UserName"
+           placeholder="UserName"
+           maxlength="10" />
+
+    <input class="input"
+           name="Password"
+           type="password"
+           placeholder="Password"
+           maxlength="6" />
+
+    <input class="input"
+           name="RePassword"
+           type="password"
+           placeholder="Repeat Password"
+           maxlength="6" />
+
+    @if (ViewBag.Error != null)
+    {
+        <p class="error-message">
+            @ViewBag.Error
+        </p>
+    }
+
+    <button class="button-confirm" type="submit">
+        Register
+    </button>
+
+    <button class="button-confirm"
+            type="button"
+            onclick="location.href='@Url.Action("Login", "Login")'">
+        Back to login
+    </button>
+
+</form>
+
+

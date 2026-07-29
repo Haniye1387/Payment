@@ -20,3 +20,433 @@ html {
 body {
   margin-bottom: 60px;
 }
+/* ========================================
+   GLOBAL
+======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: beige;
+    padding: 20px;
+}
+
+
+/* ========================================
+   MAIN FORM
+======================================== */
+
+.form {
+    --input-focus: #2d8cf0;
+    --font-color: #323232;
+    --font-color-sub: #666;
+    --bg-color: beige;
+    --main-color: black;
+    width: min(500px, 100%);
+    padding: 40px;
+    background: lightblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    border-radius: 10px;
+    border: 2px solid var(--main-color);
+    box-shadow: 6px 6px var(--main-color);
+}
+
+
+/* ========================================
+   TITLE
+======================================== */
+
+.title {
+    color: var(--font-color);
+    font-weight: 900;
+    font-size: 28px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+    .title span {
+        color: var(--font-color-sub);
+        font-weight: 600;
+        font-size: 18px;
+    }
+
+
+/* ========================================
+   INPUT
+======================================== */
+
+.input {
+    width: 100%;
+    max-width: 350px;
+    height: 48px;
+    padding: 8px 12px;
+    border: 2px solid var(--main-color);
+    border-radius: 5px;
+    background-color: var(--bg-color);
+    box-shadow: 4px 4px var(--main-color);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--font-color);
+    outline: none;
+}
+
+    .input::placeholder {
+        color: var(--font-color-sub);
+        opacity: 0.8;
+    }
+
+    .input:focus {
+        border: 2px solid var(--input-focus);
+    }
+
+
+/* ========================================
+   LABEL
+======================================== */
+
+label {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--font-color);
+}
+
+
+/* ========================================
+   BUTTON
+======================================== */
+
+.button-confirm {
+    width: 250px;
+    max-width: 100%;
+    height: 45px;
+    margin: 5px auto;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 4px 4px var(--main-color);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--font-color);
+    cursor: pointer;
+}
+
+    .button-confirm:active {
+        box-shadow: 0 0 var(--main-color);
+        transform: translate(3px, 3px);
+    }
+
+
+/* ========================================
+   LOGIN WITH
+======================================== */
+
+.login-with {
+    display: flex;
+    gap: 20px;
+}
+
+
+/* ========================================
+   LOGIN BUTTON / ICON
+======================================== */
+
+.button-log {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 4px 4px var(--main-color);
+    color: var(--font-color);
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .button-log:active {
+        box-shadow: 0 0 var(--main-color);
+        transform: translate(3px, 3px);
+    }
+
+.icon {
+    width: 24px;
+    height: 24px;
+    fill: var(--main-color);
+}
+
+
+/* ========================================
+   ERROR
+======================================== */
+
+.error-message,
+.error {
+    color: #d00000;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    margin: 0;
+}
+
+
+/* ========================================
+   SUCCESS
+======================================== */
+
+.success {
+    color: green;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0;
+}
+
+
+/* ========================================
+   REPORT TABLE
+======================================== */
+
+.table-container {
+    width: 100%;
+    padding: 5px;
+}
+
+.table-report {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    background: beige;
+    border: 2px solid black;
+    box-shadow: 4px 4px black;
+}
+
+    .table-report th,
+    .table-report td {
+        padding: 10px 5px;
+        border: 2px solid black;
+        text-align: center;
+        font-size: 15px;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .table-report th {
+        background: #87CEFA;
+    }
+
+    .table-report th {
+        background: #87CEFA;
+        padding: 12px;
+        border: 2px solid black;
+        text-align: center;
+        font-size: 16px;
+        white-space: nowrap;
+    }
+
+    .table-report td {
+        padding: 12px;
+        border: 2px solid black;
+        text-align: center;
+        font-size: 15px;
+        white-space: nowrap;
+    }
+
+    .table-report tr:hover {
+        background: #f5f5dc;
+    }
+
+
+/* ========================================
+   CHANGE PASSWORD
+======================================== */
+
+.change-password {
+    width: 100%;
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .form {
+        width: min(450px, 100%);
+        padding: 35px 25px;
+        gap: 18px;
+    }
+
+    .title {
+        font-size: 25px;
+    }
+
+        .title span {
+            font-size: 17px;
+        }
+
+    .input {
+        max-width: 100%;
+    }
+
+    .button-confirm {
+        width: 230px;
+    }
+
+    .table-report th {
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    .table-report td {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 12px;
+    }
+
+    .form {
+        width: 100%;
+        padding: 30px 18px;
+        gap: 16px;
+        border-radius: 8px;
+        box-shadow: 4px 4px var(--main-color);
+    }
+
+    .title {
+        font-size: 23px;
+        margin-bottom: 8px;
+    }
+
+        .title span {
+            font-size: 16px;
+        }
+
+    
+    /* Labels become vertical */
+
+    label {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        gap: 7px;
+        font-size: 16px;
+    }
+
+
+    /* Inputs */
+
+    .input {
+        width: 100%;
+        max-width: 100%;
+        height: 45px;
+        font-size: 16px;
+    }
+
+
+    /* Buttons */
+
+    .button-confirm {
+        width: 100%;
+        max-width: 350px;
+        height: 45px;
+        font-size: 16px;
+    }
+
+
+    /* Report table */
+
+    .table-report th,
+    .table-report td {
+        padding: 8px 4px;
+        font-size: 12px;
+    }
+
+        .table-report th {
+            padding: 9px;
+            font-size: 14px;
+        }
+
+        .table-report td {
+            padding: 9px;
+            font-size: 13px;
+        }
+}
+
+
+/* ========================================
+   VERY SMALL MOBILE
+======================================== */
+
+@media (max-width: 350px) {
+
+    body {
+        padding: 8px;
+    }
+
+    .form {
+        padding: 25px 14px;
+    }
+
+    .title {
+        font-size: 21px;
+    }
+
+        .title span {
+            font-size: 15px;
+        }
+
+    .input {
+        height: 42px;
+    }
+
+    .button-confirm {
+        height: 42px;
+        font-size: 15px;
+    }
+
+    .table-report {
+        min-width: 500px;
+    }
+
+        .table-report th,
+        .table-report td {
+            padding: 8px;
+            font-size: 12px;
+        }
+
+}
